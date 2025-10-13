@@ -1,0 +1,8 @@
+.button {
+    -unity-background-image-tint-color: rgb(0, 0, 0);
+    background-color: rgb(255, 0, 0);
+    align-self: auto;
+    align-content: auto;
+    justify-content: flex-start;
+    align-items: auto;
+}

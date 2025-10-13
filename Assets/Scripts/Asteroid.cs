@@ -1,10 +1,14 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Asteroid : MonoBehaviour
 {
     public float speed = 2f;
     public Vector2 direction;
     public float rotationSpeed = 50f;
+
+    public float explosionAnimationDuration = 2f;
 
     void Start()
     {
@@ -20,7 +24,6 @@ public class Asteroid : MonoBehaviour
     void Update()
     {
         transform.position += (Vector3)(direction * speed * Time.deltaTime);
-
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
 
@@ -28,12 +31,23 @@ public class Asteroid : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.SpawnExplosion(other.transform.position);
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SpawnExplosion(other.transform.position);
+            }
 
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
 
-            GameManager.Instance.GameOver(transform.position);
-            Destroy(gameObject);
+            GetComponent<Renderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+
+            StartCoroutine(LoadGameOverAfterExplosion());
         }
+    }
+
+    IEnumerator LoadGameOverAfterExplosion()
+    {
+        yield return new WaitForSeconds(explosionAnimationDuration);
+        SceneManager.LoadScene("GameOverScene");
     }
 }

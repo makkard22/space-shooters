@@ -1,0 +1,359 @@
+fileFormatVersion: 2
+guid: 1b588e2d2e91683478be2ab72c2c59e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1421110069366992408
+    second: laserbeams_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: laserbeams_0
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 667
+        width: 23
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -421, y: 123}
+        - {x: -242, y: 123}
+        - {x: -242, y: 447}
+        - {x: -421, y: 447}
+      - - {x: -116, y: 111}
+        - {x: 84, y: 111}
+        - {x: 84, y: 468}
+        - {x: -116, y: 468}
+      - - {x: 204, y: 121}
+        - {x: 402, y: 121}
+        - {x: 402, y: 461}
+        - {x: 204, y: 461}
+      - - {x: -428, y: -136}
+        - {x: -233, y: -136}
+        - {x: -233, y: 88}
+        - {x: -428, y: 88}
+      - - {x: -126, y: -149}
+        - {x: 87, y: -149}
+        - {x: 87, y: 89}
+        - {x: -126, y: 89}
+      - - {x: 197, y: -438}
+        - {x: 410, y: -438}
+        - {x: 410, y: 97}
+        - {x: 197, y: 97}
+      - - {x: -437, y: -411}
+        - {x: -238, y: -411}
+        - {x: -238, y: -214}
+        - {x: -437, y: -214}
+      - - {x: -122, y: -448}
+        - {x: 56, y: -448}
+        - {x: 56, y: -210}
+        - {x: -122, y: -210}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ea957241cc8b310800000000000000
+      internalID: 1421110069366992408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserbeams_1
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 693
+        width: 21
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac600b3bb0044014882f901725bed687
+      internalID: -1122443189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserbeams_2
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 697
+        width: 28
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1287272963ee4e4a812ee08a89980a0
+      internalID: -1552178747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserbeams_3
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 419
+        width: 28
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbda6a8543575714b98198fc41a4e362
+      internalID: -468926146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserbeams_4
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 441
+        width: 26
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1d69477b4e789458c2eb7fa14b27db
+      internalID: -1280839764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserbeams_5
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 342
+        width: 24
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6c12f346b25db4abbbc0e52f2a8eac
+      internalID: 290440458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserbeams_6
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 166
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665a947868a0a5b4eb0e35b444cdc3d6
+      internalID: -1093289734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserbeams_7
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 120
+        width: 26
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0827c75fc3b5384490dd9b2a3aa0273
+      internalID: 280015559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserbeams_8
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 97
+        width: 24
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171a320820ff9b946ae7b2149deefe69
+      internalID: -2084270008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 96b134713c924cc4ca9aa9546c4756e4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      laserbeams_0: 1421110069366992408
+      laserbeams_1: -1122443189
+      laserbeams_2: -1552178747
+      laserbeams_3: -468926146
+      laserbeams_4: -1280839764
+      laserbeams_5: 290440458
+      laserbeams_6: -1093289734
+      laserbeams_7: 280015559
+      laserbeams_8: -2084270008
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

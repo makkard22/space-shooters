@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/mainmenu.uss?fileID=7433441132597879392&amp;guid=cc32924d29b508c4993ece8e6393514d&amp;type=3#mainmenu" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="Buttons" style="flex-grow: 1; justify-content: center; background-size: 50% 50%;">
+            <ui:Button text="New Game" name="ButtonNewGame" style="justify-content: flex-start; align-content: auto; background-color: rgb(1, 77, 255); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
+            <ui:Button text="Quit Game" name="ButtonQuitGame" class="button" style="-unity-text-align: upper-center; background-color: rgb(0, 53, 255);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

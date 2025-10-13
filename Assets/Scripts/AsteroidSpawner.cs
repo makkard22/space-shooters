@@ -6,7 +6,6 @@ public class AsteroidSpawner : MonoBehaviour
     public float spawnInterval = 3f;
     public int maxAsteroids = 10;
     public Camera cam;
-
     private float spawnTimer;
     private int currentAsteroids;
 
