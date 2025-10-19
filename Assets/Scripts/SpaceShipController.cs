@@ -3,110 +3,99 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public Vector2 heading;
-    public float speed = 5f;
-    public Vector2 velocity;
-    public Camera cam;
+    [Header("Movement")]
+    public float maxSpeed = 8f;
+    public float acceleration = 10f;
+    public float deceleration = 5f; 
+    public float rotationSpeed = 200f;  
+
+    [Header("Input")]
     public InputActionReference thrust;
-    public float acceleration = 6.0f;
     public InputActionReference cw;
     public InputActionReference ccw;
-    public float rotationspeed = 10.0f;
+
+    private Vector2 velocity;
+    private float currentRotation;
+    private Camera cam;
 
     void Start()
     {
-        heading = Vector2.up;
+        cam = Camera.main;
         velocity = Vector2.zero;
+        currentRotation = 0f;
 
-        if (thrust != null)
-        {
-            thrust.action.Enable();
-        }
-        if (cw != null)
-        {
-            cw.action.Enable();
-        }
-        if (ccw != null)
-        {
-            ccw.action.Enable();
-        }
+        if (thrust != null) thrust.action.Enable();
+        if (cw != null) cw.action.Enable();
+        if (ccw != null) ccw.action.Enable();
     }
 
     void Update()
     {
-        bool rotatecw = (cw && cw.action.IsPressed());
-        bool rotateccw = (ccw && ccw.action.IsPressed());   
-        int sign = (rotatecw ? -1 : 1);
-        float dt = Time.deltaTime;
-
-        if(rotatecw || rotateccw)
-        {
-            float angle = sign * rotationspeed * dt;
-            Quaternion zRot = Quaternion.AngleAxis(angle, Vector3.forward);
-            heading = zRot * heading;
-            heading.Normalize();
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, heading);
-
-        }
-
-        if (thrust && thrust.action.IsPressed())
-        {
-            velocity += heading * acceleration * dt;
-        }
-
-        transform.position += (Vector3)(velocity * speed * dt);
-
-        CorrectCameraPosition();
+        HandleRotation();
+        HandleMovement();
+        WrapAroundScreen();
     }
 
-    void CorrectCameraPosition()
+    void HandleRotation()
     {
-        if (cam != null)
-        {
-            Vector3 min = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
-            Vector3 max = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
+        float rotationInput = 0f;
 
-            if (transform.position.x < min.x)
-                transform.position = new Vector3(max.x, transform.position.y, transform.position.z);
+        if (cw != null && cw.action.IsPressed())
+            rotationInput = -1f;
+        else if (ccw != null && ccw.action.IsPressed())
+            rotationInput = 1f;
 
-            if (transform.position.x > max.x)
-                transform.position = new Vector3(min.x, transform.position.y, transform.position.z);
-
-            if (transform.position.y < min.y)
-                transform.position = new Vector3(transform.position.x, max.y, transform.position.z);
-
-            if (transform.position.y > max.y)
-                transform.position = new Vector3(transform.position.x, min.y, transform.position.z);
-        }
+        currentRotation += rotationInput * rotationSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 0, currentRotation);
     }
-    public void OnEnable()
+
+    void HandleMovement()
     {
-        if (thrust)
+        Vector2 heading = transform.up;
+
+        if (thrust != null && thrust.action.IsPressed())
         {
-            thrust.action.Enable();
+            velocity += heading * acceleration * Time.deltaTime;
+
+            if (velocity.magnitude > maxSpeed)
+            {
+                velocity = velocity.normalized * maxSpeed;
+            }
         }
-        if (cw)
+        else
         {
-            cw.action.Enable();
+            velocity = Vector2.Lerp(velocity, Vector2.zero, deceleration * Time.deltaTime);
         }
-        if (ccw)
-        {
-            ccw.action.Enable();
-        }
+
+        transform.position += (Vector3)velocity * Time.deltaTime;
     }
-    public void OnDisable()
+
+    void WrapAroundScreen()
     {
-        if (thrust)
-        {
-            thrust.action.Disable();
-        }
-        if (cw)
-        {
-            cw.action.Disable();
-        }
-        if (ccw)
-        {
-            ccw.action.Disable();
-        }
+        if (cam == null) return;
+
+        Vector3 viewportPos = cam.WorldToViewportPoint(transform.position);
+
+        if (viewportPos.x < 0) viewportPos.x = 1;
+        else if (viewportPos.x > 1) viewportPos.x = 0;
+
+        if (viewportPos.y < 0) viewportPos.y = 1;
+        else if (viewportPos.y > 1) viewportPos.y = 0;
+
+        transform.position = cam.ViewportToWorldPoint(viewportPos);
+    }
+
+    void OnEnable()
+    {
+        if (thrust != null) thrust.action.Enable();
+        if (cw != null) cw.action.Enable();
+        if (ccw != null) ccw.action.Enable();
+    }
+
+    void OnDisable()
+    {
+        if (thrust != null) thrust.action.Disable();
+        if (cw != null) cw.action.Disable();
+        if (ccw != null) ccw.action.Disable();
     }
 }

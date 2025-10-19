@@ -1,12 +1,32 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
+    [Header("UI References")]
+    public TextMeshProUGUI finalScoreText;  // Drag in Inspector
+
     void Start()
     {
         Time.timeScale = 1f;
         SetupButtons();
+        DisplayFinalScore();
+    }
+
+    void DisplayFinalScore()
+    {
+        int finalScore = PlayerPrefs.GetInt("LastScore", 0);
+        Debug.Log($"Loading final score: {finalScore}"); // Debug log
+
+        if (finalScoreText != null)
+        {
+            finalScoreText.text = "Final Score: " + finalScore.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("Final Score Text is not assigned!");
+        }
     }
 
     void SetupButtons()
@@ -35,7 +55,7 @@ public class GameOverManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit();  // Only compiled in builds
+            Application.Quit();
 #endif
     }
 }

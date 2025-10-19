@@ -47,6 +47,14 @@ public class Asteroid : MonoBehaviour
 
     IEnumerator LoadGameOverAfterExplosion()
     {
+        if (GameManager.Instance != null)
+        {
+            int currentScore = GameManager.Instance.GetScore();
+            PlayerPrefs.SetInt("LastScore", currentScore);
+            PlayerPrefs.Save();
+            Debug.Log($"Saving score: {currentScore}"); 
+        }
+
         yield return new WaitForSeconds(explosionAnimationDuration);
         SceneManager.LoadScene("GameOverScene");
     }

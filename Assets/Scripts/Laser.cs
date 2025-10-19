@@ -3,6 +3,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public float speed = 20f;
+
     void Start()
     {
         SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
@@ -16,12 +17,24 @@ public class Laser : MonoBehaviour
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Asteroid"))
         {
-            Destroy(other.gameObject);
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddScore(GameManager.Instance.pointsPerAsteroid);
+                GameManager.Instance.SpawnExplosion(other.transform.position);
+            }
 
+            AsteroidSpawner spawner = Object.FindAnyObjectByType<AsteroidSpawner>();
+            if (spawner != null)
+            {
+                spawner.AsteroidDestroyed();
+            }
+
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

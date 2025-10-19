@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,6 +8,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Effects")]
     public GameObject explosionPrefab;
+
+    [Header("Score System")]
+    public int score = 0;
+    public int pointsPerAsteroid = 100;
+
+    [Header("UI")]
+    public TextMeshProUGUI scoreText;  // For in-game score display
 
     void Awake()
     {
@@ -22,6 +31,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        score = 0;
+        UpdateScoreDisplay();
     }
 
     public void SpawnExplosion(Vector3 position)
@@ -30,5 +41,25 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(explosionPrefab, position, Quaternion.identity);
         }
+    }
+
+    public void AddScore(int points)
+    {
+        score += points;
+        UpdateScoreDisplay();
+        Debug.Log($"Score: {score}");
+    }
+
+    void UpdateScoreDisplay()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score.ToString();
+        }
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
