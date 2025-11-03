@@ -14,7 +14,13 @@ public class GameManager : MonoBehaviour
     public int pointsPerAsteroid = 100;
 
     [Header("UI")]
-    public TextMeshProUGUI scoreText;  // For in-game score display
+    public TextMeshProUGUI scoreText;
+
+    [Header("Audio")]
+    public AudioSource backgroundMusic;
+    public AudioClip backgroundMusicClip;
+    [Range(0f, 1f)]
+    public float musicVolume = 0.5f;
 
     void Awake()
     {
@@ -33,6 +39,24 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         score = 0;
         UpdateScoreDisplay();
+
+        PlayBackgroundMusic();
+    }
+
+    void PlayBackgroundMusic()
+    {
+        if (backgroundMusic == null)
+        {
+            backgroundMusic = gameObject.AddComponent<AudioSource>();
+        }
+
+        if (backgroundMusicClip != null)
+        {
+            backgroundMusic.clip = backgroundMusicClip;
+            backgroundMusic.loop = true;
+            backgroundMusic.volume = musicVolume;
+            backgroundMusic.Play();
+        }
     }
 
     public void SpawnExplosion(Vector3 position)

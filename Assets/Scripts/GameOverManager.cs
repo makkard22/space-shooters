@@ -5,7 +5,7 @@ using TMPro;
 public class GameOverManager : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI finalScoreText;  // Drag in Inspector
+    public TextMeshProUGUI finalScoreText;
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class GameOverManager : MonoBehaviour
     void DisplayFinalScore()
     {
         int finalScore = PlayerPrefs.GetInt("LastScore", 0);
-        Debug.Log($"Loading final score: {finalScore}"); // Debug log
+        Debug.Log($"Loading final score: {finalScore}");
 
         if (finalScoreText != null)
         {

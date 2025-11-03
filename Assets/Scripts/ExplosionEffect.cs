@@ -22,6 +22,7 @@ public class ExplosionEffect : MonoBehaviour
                 Destroy(gameObject, animationLength);
             }
         }
+
         else
         {
             Destroy(gameObject, 1f);
